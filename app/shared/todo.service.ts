@@ -11,7 +11,7 @@ export class TodoService {
 
 	constructor(private http: Http) {}
 
-	getTodos(): Todo[] {
+	getTodos(): Promise<Todo[]> {
 		return this.http.get(this.apiUrl)
 										.toPromise()
 										.then(res => res.json().data)
